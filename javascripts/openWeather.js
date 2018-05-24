@@ -28,7 +28,30 @@ const showResults = (searchText) => {
     });
 };
 
+const fiveDay = (text) => {
+  return new Promise((resolve, reject) => {
+    $.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${text}&appid=${weatherKey}&units=imperial`)
+      .done((result) => {
+        resolve(result.list);
+      })
+      .fail((err) => {
+        reject(err);
+      });
+  });
+};
+
+const showFiveDay = (searchText) => {
+  fiveDay(searchText)
+    .then((result) => {
+      dom.domFive(result);
+    })
+    .catch((err) => {
+      console.error('search 5day error:', err);
+    });
+};
+
 module.exports = {
   setWeatherKey,
   showResults,
+  showFiveDay,
 };
