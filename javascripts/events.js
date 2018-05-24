@@ -5,16 +5,27 @@ const pressEnter = () => {
     if (e.key === 'Enter') {
       const searchZip = $('#searchBar').val();
       openWeather.showResults(searchZip);
+      clickFiveDay();
     };
   });
 };
 
 const clickButton = () => {
   $('#weatherButton').click(() => {
-    console.log('clickITGood');
     const searchZip = $('#searchBar').val();
     openWeather.showResults(searchZip);
+    clickFiveDay();
   });
+};
+
+const clickFiveDay = () => {
+  $(document).on('click', '#fiveDayButton', fiveDayForecast);
+};
+
+const fiveDayForecast = () => {
+  console.log('turds');
+  const zip = $('#searchBar').val();
+  openWeather.showFiveDay(zip);
 };
 
 const bindEvents = () => {
