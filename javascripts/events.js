@@ -23,7 +23,6 @@ const clickFiveDay = () => {
 };
 
 const fiveDayForecast = () => {
-  console.log('turds');
   const zip = $('#searchBar').val();
   openWeather.showFiveDay(zip);
 };

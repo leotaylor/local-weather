@@ -1,3 +1,11 @@
 body{
   background-color: cyan;
 }
+
+.clear {
+  background-color: rgb(247, 181, 95);
+}
+
+.clouds {
+  background-color: grey;
+}
