@@ -1,5 +1,7 @@
 body{
   background-color: cyan;
+  margin: 1%;
+  padding: 1%;
 }
 
 .clear {
@@ -8,4 +10,25 @@ body{
 
 .clouds {
   background-color: grey;
+}
+
+.rain {
+  background-color: aquamarine;
+}
+
+.thunder {
+  background-color: rgb(163, 47, 47);
+}
+
+#fiveDayOutput{
+  /* margin-left: 3%; */
+}
+
+#fiveCard{
+  padding: 0px;
+  min-height: 300px;
+}
+
+#fiveDayContainer {
+  min-height:300px;
 }

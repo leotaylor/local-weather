@@ -25,6 +25,7 @@ const clickFiveDay = () => {
 const fiveDayForecast = () => {
   const zip = $('#searchBar').val();
   openWeather.showFiveDay(zip);
+  $('#fiveDayButton').toggle();
 };
 
 const bindEvents = () => {

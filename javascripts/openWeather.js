@@ -57,24 +57,39 @@ const changeStyle = () => {
   if (conditions === 'Conditions: Clear') {
     $('#condtionsContainer').addClass('clear');
     $('#condtionsContainer').removeClass('clouds');
+    $('#condtionsContainer').removeClass('thunder');
   };
   if (conditions === 'Conditions: Clouds') {
     $('#condtionsContainer').removeClass('clear');
     $('#condtionsContainer').addClass('clouds');
+    $('#condtionsContainer').removeClass('thunder');
+  }
+  if (conditions === 'Conditions: Thunderstorm') {
+    $('#condtionsContainer').addClass('thunder');
+    $('#condtionsContainer').removeClass('clear');
+    $('#condtionsContainer').removeClass('clouds');
   }
 };
 
 const fiveDayStyle = () => {
-  const fiveConditions = $('#fiveConditions').html();
+  // const fiveConditions = $('#fiveConditions').html();
+  const fiveConditions = $('#fiveDayContainer').prop('class');
   console.log(fiveConditions);
-  if (fiveConditions === 'Conditions: Clouds') {
+  if (fiveConditions === 'thumbnail Clouds') {
     $('#fiveDayContainer').addClass('clouds');
     $('#fiveDayContainer').removeClass('clear');
+    $('#fiveDayContainer').removeClass('rain');
   };
-  if (fiveConditions === 'Conditions: Clear') {
+  if (fiveConditions === 'thumbnail Clear') {
     $('#fiveDayContainer').addClass('clear');
     $('#fiveDayContainer').removeClass('clouds');
+    $('#fiveDayContainer').removeClass('rain');
   };
+  if (fiveConditions === 'thumbnail Rain') {
+    $('#fiveDayContainer').addClass('rain');
+    $('#fiveDayContainer').removeClass('clear');
+    $('#fiveDayContainer').removeClass('clouds');
+  }
 };
 
 module.exports = {
