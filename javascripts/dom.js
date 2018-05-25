@@ -20,12 +20,10 @@ const domFive = (weatherArray) => {
   for (let i = 0; i < weatherArray.length; i += 8) {
     theString += `<div class="col-sm-2" id=fiveCard>`;
     theString +=   `<div class="thumbnail ${weatherArray[i].weather[0].main}" id='fiveDayContainer'>`;
-    theString +=     `<div class="caption">`;
-    theString +=       `<h3>Temperature: ${weatherArray[i].main.temp} Fahrenheit</h3>`;
-    theString +=       `<h3 id="fiveConditions">Conditions: ${weatherArray[i].weather[0].main}</h3>`;
-    theString +=       `<h3>Air Pressure: ${weatherArray[i].main.pressure}</h3>`;
-    theString +=       `<h3>Wind Speed: ${weatherArray[i].wind.speed}</h3>`;
-    theString +=     `</div>`;
+    theString +=     `<h3>Temperature: ${weatherArray[i].main.temp} Fahrenheit</h3>`;
+    theString +=     `<h3 id="fiveConditions">Conditions: ${weatherArray[i].weather[0].main}</h3>`;
+    theString +=     `<h3>Air Pressure: ${weatherArray[i].main.pressure}</h3>`;
+    theString +=     `<h3>Wind Speed: ${weatherArray[i].wind.speed}</h3>`;
     theString +=   `</div>`;
     theString += `</div>`;
   };
