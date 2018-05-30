@@ -1,19 +1,53 @@
 body{
-  background-color: cyan;
-  margin: 1%;
-  padding: 1%;
+  margin: 0%;
+  background-image: url(https://images.unsplash.com/photo-1481956806014-1eae8e1c579a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e7fb10ecec8f78722142ab5a36ac0267&auto=format&fit=crop&w=1949&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
+.theHead {
+  padding: 1% 0;
+  background-color: grey;
+  opacity: .6;
+  margin-bottom: 3%;
+}
+
+/* #weatherOutput {
+  background-color: grey;
+} */
+
 .clear {
-  background-color: rgb(247, 181, 95);
+  background-image: url(http://portugalresident.com/sites/default/files/styles/node-detail/public/field/image/istock_sunny_sky_with_grass_000005407896small.jpg?itok=flbPOoPg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .clouds {
-  background-color: grey;
+  background-image: url(https://images.unsplash.com/photo-1469365556835-3da3db4c253b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cc8ffae7375ecf2fed3293278e1a9a2b&auto=format&fit=crop&w=800&q=60);
+  background-repeat: no-repeat;
+  background-size: fill;
 }
 
 .rain {
-  background-color: aquamarine;
+  background-image: url(hhttps://images.unsplash.com/photo-1484889176133-94079a66d71a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5c1005116efd11475e70314f5f08342f&auto=format&fit=crop&w=800&q=60);
+  color: white;
+}
+
+.Clear {
+  background-image: url(http://portugalresident.com/sites/default/files/styles/node-detail/public/field/image/istock_sunny_sky_with_grass_000005407896small.jpg?itok=flbPOoPg);
+}
+
+.Clouds {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeNfaCn-0_WdboUx-WsMF5N-msvu5Cq3KZ46uGAmHb_8M3NjgAPA);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Rain {
+  background-image: url(https://images.unsplash.com/photo-1501297875943-27f3803b4956?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92040ffdf1d69f95bd07de722eb80e82&auto=format&fit=crop&w=934&q=80);
+  color: white;
+  background-size: 55em
 }
 
 .thunder {
@@ -21,14 +55,17 @@ body{
 }
 
 #fiveDayOutput{
-  /* margin-left: 3%; */
+  margin-top: 3%;
 }
 
-#fiveCard{
+.fiveCard{
   padding: 0px;
   min-height: 300px;
+  margin-left: 3%;
 }
 
-#fiveDayContainer {
-  min-height:300px;
+.fiveDayContainer {
+  min-height: 300px;
+  border-radius: 10%;
+  box-shadow: 5px 5px, red;
 }

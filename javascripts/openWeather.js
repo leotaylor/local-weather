@@ -45,7 +45,7 @@ const showFiveDay = (searchText) => {
   fiveDay(searchText)
     .then((result) => {
       dom.domFive(result);
-      fiveDayStyle(result);
+      // fiveDayStyle(result);
     })
     .catch((err) => {
       console.error('search 5day error:', err);
@@ -63,34 +63,54 @@ const changeStyle = () => {
     $('#condtionsContainer').removeClass('clear');
     $('#condtionsContainer').addClass('clouds');
     $('#condtionsContainer').removeClass('thunder');
-  }
+  };
   if (conditions === 'Conditions: Thunderstorm') {
     $('#condtionsContainer').addClass('thunder');
     $('#condtionsContainer').removeClass('clear');
     $('#condtionsContainer').removeClass('clouds');
-  }
+  };
 };
 
-const fiveDayStyle = () => {
-  // const fiveConditions = $('#fiveConditions').html();
-  const fiveConditions = $('#fiveDayContainer').prop('class');
-  console.log(fiveConditions);
-  if (fiveConditions === 'thumbnail Clouds') {
-    $('#fiveDayContainer').addClass('clouds');
-    $('#fiveDayContainer').removeClass('clear');
-    $('#fiveDayContainer').removeClass('rain');
-  };
-  if (fiveConditions === 'thumbnail Clear') {
-    $('#fiveDayContainer').addClass('clear');
-    $('#fiveDayContainer').removeClass('clouds');
-    $('#fiveDayContainer').removeClass('rain');
-  };
-  if (fiveConditions === 'thumbnail Rain') {
-    $('#fiveDayContainer').addClass('rain');
-    $('#fiveDayContainer').removeClass('clear');
-    $('#fiveDayContainer').removeClass('clouds');
-  }
-};
+// const fiveDayStyle = () => {
+//   const fiveConditions = $('#fiveConditions').html();
+//   console.log(fiveConditions);
+//   // const fiveConditions = $('#fiveConditions').prop('class');
+//   if (fiveConditions === 'Conditions: Clouds') {
+//     $('.fiveDayContainer').removeClass('rain');
+//     $('.fiveDayContainer').removeClass('clear');
+//     $('.fiveDayContainer').addClass('clouds');
+//   } else
+//   if (fiveConditions === 'Conditions: Clear') {
+//     $('.fiveDayContainer').removeClass('clouds');
+//     $('.fiveDayContainer').removeClass('rain');
+//     $('.fiveDayContainer').addClass('clear');
+//   } else
+//   if (fiveConditions === 'Conditions: Rain') {
+//     $('.fiveDayContainer').removeClass('clear');
+//     $('.fiveDayContainer').removeClass('clouds');
+//     $('.fiveDayContainer').addClass('rain');
+//   };
+// };
+
+// const fiveDayStyle = () => {
+//   // const fiveConditions = $('#fiveConditions').html();
+//   // const fiveConditions = $('#fiveConditions').prop('class');
+//   if ($("#fiveConditions:contains('Clouds')")) {
+//     $('.fiveDayContainer').addClass('clouds');
+//     $('.fiveDayContainer').removeClass('rain');
+//     $('.fiveDayContainer').removeClass('clear');
+//   }
+//   if ($("#fiveConditions:contains('Clear')")) {
+//     $('.fiveDayContainer').addClass('clear');
+//     $('.fiveDayContainer').removeClass('clouds');
+//     $('.fiveDayContainer').removeClass('rain');
+//   }
+//   if ($("#fiveConditions:contains('Rain')")) {
+//     $('.fiveDayContainer').addClass('rain');
+//     $('.fiveDayContainer').removeClass('clear');
+//     $('.fiveDayContainer').removeClass('clouds');
+//   };
+// };
 
 module.exports = {
   setWeatherKey,
