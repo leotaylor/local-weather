@@ -1,0 +1,28 @@
+{
+  "weather": {
+    "forecast0": {
+      "temp": "Temperature: 79&#8457",
+			"conditions": "Conditions: Clear",
+			"pressure": "Air Pressure: 1000 fpm",
+			"speed": "Wind Speed: 5 mph",
+			"isScary": false,
+			"uid": "12345"
+    },
+    "forecast1": {
+      "temp": "Temperature: 79&#8457",
+			"conditions": "Conditions: Clear",
+			"pressure": "Air Pressure: 1000 fpm",
+			"speed": "Wind Speed: 5 mph",
+			"isScary": false,
+			"uid": "12345"
+  },
+  "forecast2": {
+    "temp": "Temperature: 79&#8457",
+    "conditions": "Conditions: Clear",
+    "pressure": "Air Pressure: 1000 fpm",
+    "speed": "Wind Speed: 5 mph",
+    "isScary": false,
+    "uid": "12345"
+  }
+}
+}
