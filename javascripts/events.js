@@ -55,6 +55,7 @@ const getAllWeatherEvent = () => {
   firebaseAPI.getAllWeather()
     .then((newWeatherArray) => {
       dom.savedWeatherDom(newWeatherArray);
+      clickTrash();
     })
     .catch((error) => {
       console.error('error in get all weather', error);
@@ -63,6 +64,29 @@ const getAllWeatherEvent = () => {
 
 const clickViewSaved = () => {
   $(document).on('click', '#savedWeather', getAllWeatherEvent);
+};
+
+const clickTrash = () => {
+  $(document).on('click', '.deleteWeather', deleteWeather);
+};
+
+const deleteWeather = (e) => {
+  const weatherToDeleteCard = $(e.target).closest('#trashCard');
+  console.log(weatherToDeleteCard);
+  const weatherToDelete = {
+    temp: weatherToDeleteCard.find('.temp').text(),
+    conditions: weatherToDeleteCard.find('#fiveConditions').text(),
+    pressure: weatherToDeleteCard.find('.pressure').text(),
+    speed: weatherToDeleteCard.find('.wind').text(),
+    isScary: false,
+  };
+  firebaseAPI.deleteWeather(weatherToDelete)
+    .then(() => {
+      weatherToDeleteCard.remove();
+    })
+    .catch((error) => {
+      console.error('error in delete weather', error);
+    });
 };
 
 const bindEvents = () => {
