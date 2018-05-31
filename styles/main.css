@@ -30,8 +30,8 @@ body{
 }
 
 .rain {
-  background-image: url(hhttps://images.unsplash.com/photo-1484889176133-94079a66d71a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5c1005116efd11475e70314f5f08342f&auto=format&fit=crop&w=800&q=60);
-  color: white;
+  background-image: url(https://images.unsplash.com/photo-1484889176133-94079a66d71a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5c1005116efd11475e70314f5f08342f&auto=format&fit=crop&w=800&q=60);
+  background-position: 0% 70%;
 }
 
 .Clear {
@@ -52,6 +52,10 @@ body{
 
 .thunder {
   background-color: rgb(163, 47, 47);
+}
+
+.btn-danger{
+  margin-top: 5%;
 }
 
 #condtionsContainer {

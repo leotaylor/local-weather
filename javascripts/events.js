@@ -1,5 +1,6 @@
 const openWeather = require('./openWeather');
 const firebaseAPI = require('./firebaseAPI');
+const dom = require('./dom');
 
 const pressEnter = () => {
   $(document).keypress((e) => {
@@ -50,10 +51,25 @@ const saveForecast = () => {
   });
 };
 
+const getAllWeatherEvent = () => {
+  firebaseAPI.getAllWeather()
+    .then((newWeatherArray) => {
+      dom.savedWeatherDom(newWeatherArray);
+    })
+    .catch((error) => {
+      console.error('error in get all weather', error);
+    });
+};
+
+const clickViewSaved = () => {
+  $(document).on('click', '#savedWeather', getAllWeatherEvent);
+};
+
 const bindEvents = () => {
   pressEnter();
   clickButton();
   saveForecast();
+  clickViewSaved();
 };
 
 module.exports = {
