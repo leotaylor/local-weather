@@ -22,8 +22,8 @@ const domFive = (weatherArray) => {
       theString +=     `<h4 id="fiveConditions">Conditions: ${oneDay.weather[0].main}</h4>`;
       theString +=     `<h4 class='pressure'>Air Pressure: ${oneDay.main.pressure} hpa</h4>`;
       theString +=     `<h4 class='wind'>Wind Speed: ${oneDay.wind.speed} mph</h4>`;
-      theString +=     `<a href="#" class="btn btn-info btn-lg saveWeather"><span class="glyphicon glyphicon-heart-empty"></span> Save Forecast</a>`;
-      theString +=      `<button type="button" class="btn-lg btn-danger" id="isScary">Very Frightening Me</button>`;
+      theString +=     `<a href="#" class="btn btn-info saveWeather"><span class="glyphicon glyphicon-heart-empty"></span> Save Forecast</a>`;
+      theString +=      `<button type="button" class="btn-danger" id="isScary">Very, Very Frightening Me</button>`;
       theString +=   `</div>`;
       theString += `</div>`;
     };
@@ -31,22 +31,19 @@ const domFive = (weatherArray) => {
   printFiveDay(theString);
 };
 
-const savedWeatherDom = (newWeatherArray) => {
+const savedWeatherDom = (array) => {
   let theString = '';
-  theString = 'Your Saved Forecasts!';
-  newWeatherArray.forEach((oneDay, index) => {
-    if (index % 8 === 0) {
-      theString += `<div class="col-sm-2 fiveCard">`;
-      theString +=   `<div class="thumbnail fiveDayContainer ${oneDay.weather[0].main}">`;
-      theString +=     `<h4 class="temp">Temperature: ${oneDay.main.temp}&#8457</h4>`;
-      theString +=     `<h4 id="fiveConditions">Conditions: ${oneDay.weather[0].main}</h4>`;
-      theString +=     `<h4 class='pressure'>Air Pressure: ${oneDay.main.pressure} hpa</h4>`;
-      theString +=     `<h4 class='wind'>Wind Speed: ${oneDay.wind.speed} mph</h4>`;
-      theString +=     `<a href="#" class="btn btn-info btn-lg saveWeather"><span class="glyphicon glyphicon-heart-empty"></span> Save Forecast</a>`;
-      theString +=      `<button type="button" class="btn-lg btn-danger" id="isScary">Very Frightening Me</button>`;
-      theString +=   `</div>`;
-      theString += `</div>`;
-    };
+  theString = `<h1>Your Saved Forecasts!</h1>`;
+  array.forEach((oneDay) => {
+    theString += `<div class="col-sm-2 fiveCard">`;
+    theString +=   `<div class="thumbnail fiveDayContainer ${oneDay.conditions}">`;
+    theString +=     `<h4 class="temp">${oneDay.temp}</h4>`;
+    theString +=     `<h4 id="fiveConditions">${oneDay.conditions}</h4>`;
+    theString +=     `<h4 class='pressure'>${oneDay.pressure}</h4>`;
+    theString +=     `<h4 class='wind'>${oneDay.speed}</h4>`;
+    theString +=      `<button type="button" class="btn-lg btn-danger" id="isScary">Very Frightening Me</button>`;
+    theString +=   `</div>`;
+    theString += `</div>`;
   });
   printSaved(theString);
 };

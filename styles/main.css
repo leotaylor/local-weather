@@ -54,6 +54,10 @@ body{
   background-color: rgb(163, 47, 47);
 }
 
+.btn-danger{
+  margin-top: 5%;
+}
+
 #condtionsContainer {
   opacity: .7;
 }
