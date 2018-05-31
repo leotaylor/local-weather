@@ -23,7 +23,7 @@ const domFive = (weatherArray) => {
       theString +=     `<h4 class='pressure'>Air Pressure: ${oneDay.main.pressure} hpa</h4>`;
       theString +=     `<h4 class='wind'>Wind Speed: ${oneDay.wind.speed} mph</h4>`;
       theString +=     `<a href="#" class="btn btn-info btn-lg saveWeather"><span class="glyphicon glyphicon-heart-empty"></span> Save Forecast</a>`;
-      theString +=      `<button type="button" class="btn-lg btn-danger isScary">I'm Scared</button>`;
+      theString +=      `<button type="button" class="btn-lg btn-danger" id="isScary">Very Frightening Me</button>`;
       theString +=   `</div>`;
       theString += `</div>`;
     };
@@ -31,21 +31,25 @@ const domFive = (weatherArray) => {
   printFiveDay(theString);
 };
 
-// const domFive = (weatherArray) => {
-//   let theString = '';
-//   theString += `<h1>Here is your five day forecast!</h1>`;
-//   for (let i = 0; i < weatherArray.length; i += 8) {
-//     theString += `<div class="col-sm-2 fiveCard">`;
-//     theString +=   `<div class="thumbnail fiveDayContainer ${weatherArray[i].weather[0].main}">`;
-//     theString +=     `<h3>Temperature: ${weatherArray[i].main.temp} Fahrenheit</h3>`;
-//     theString +=     `<h3 id="fiveConditions">Conditions: ${weatherArray[i].weather[0].main}</h3>`;
-//     theString +=     `<h3>Air Pressure: ${weatherArray[i].main.pressure}</h3>`;
-//     theString +=     `<h3>Wind Speed: ${weatherArray[i].wind.speed}</h3>`;
-//     theString +=   `</div>`;
-//     theString += `</div>`;
-//   };
-//   printFiveDay(theString);
-// };
+const savedWeatherDom = (newWeatherArray) => {
+  let theString = '';
+  theString = 'Your Saved Forecasts!';
+  newWeatherArray.forEach((oneDay, index) => {
+    if (index % 8 === 0) {
+      theString += `<div class="col-sm-2 fiveCard">`;
+      theString +=   `<div class="thumbnail fiveDayContainer ${oneDay.weather[0].main}">`;
+      theString +=     `<h4 class="temp">Temperature: ${oneDay.main.temp}&#8457</h4>`;
+      theString +=     `<h4 id="fiveConditions">Conditions: ${oneDay.weather[0].main}</h4>`;
+      theString +=     `<h4 class='pressure'>Air Pressure: ${oneDay.main.pressure} hpa</h4>`;
+      theString +=     `<h4 class='wind'>Wind Speed: ${oneDay.wind.speed} mph</h4>`;
+      theString +=     `<a href="#" class="btn btn-info btn-lg saveWeather"><span class="glyphicon glyphicon-heart-empty"></span> Save Forecast</a>`;
+      theString +=      `<button type="button" class="btn-lg btn-danger" id="isScary">Very Frightening Me</button>`;
+      theString +=   `</div>`;
+      theString += `</div>`;
+    };
+  });
+  printSaved(theString);
+};
 
 const printToDom = (stringz) => {
   $('#weatherOutput').html(stringz);
@@ -55,7 +59,12 @@ const printFiveDay = (stringers) => {
   $('#fiveDayOutput').html(stringers);
 };
 
+const printSaved = (strung) => {
+  $('#savedOutput').html(strung);
+};
+
 module.exports = {
   domString,
   domFive,
+  savedWeatherDom,
 };
