@@ -57,9 +57,26 @@ const deleteWeather = (weatherId) => {
   });
 };
 
+const scaryWeather = (updatedWeather, weatherId) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'PUT',
+      url: `${firebaseConfig.databaseURL}/weather/${weatherId}.json`,
+      data: JSON.stringify(updatedWeather),
+    })
+      .done((modifiedWeather) => {
+        resolve(modifiedWeather);
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
 module.exports = {
   setConfig,
   saveWeather,
   getAllWeather,
   deleteWeather,
+  scaryWeather,
 };

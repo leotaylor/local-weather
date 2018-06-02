@@ -86,12 +86,35 @@ const deleteWeather = (e) => {
     });
 };
 
+// is it scary?
+const isItScary = () => {
+  $(document).on('click', '.Scary', (e) => {
+    const weatherToUpdateId = $(e.target).closest('.fiveDayContainer').data('firebaseId');
+    const weatherToUpdateCard = $(e.target).closest('.fiveDayContainer');
+    const updatedWeather = {
+      temp: weatherToUpdateCard.find('.temp').text(),
+      conditions: weatherToUpdateCard.find('#fiveConditions').text(),
+      pressure: weatherToUpdateCard.find('.pressure').text(),
+      speed: weatherToUpdateCard.find('.wind').text(),
+      isScary: true,
+    };
+    firebaseAPI.scaryWeather(updatedWeather, weatherToUpdateId)
+      .then(() => {
+        getAllWeatherEvent();
+      })
+      .catch((error) => {
+        console.error('error on updated scary weather', error);
+      });
+  });
+};
+
 const bindEvents = () => {
   pressEnter();
   clickButton();
   saveForecast();
   clickViewSaved();
   clickTrash();
+  isItScary();
 };
 
 module.exports = {
