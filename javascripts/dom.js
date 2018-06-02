@@ -25,7 +25,6 @@ const domFive = (weatherArray) => {
       theString +=     `<h4 class='pressure'>Air Pressure: ${oneDay.main.pressure} hpa</h4>`;
       theString +=     `<h4 class='wind'>Wind Speed: ${oneDay.wind.speed} mph</h4>`;
       theString +=     `<a href="#" class="btn btn-info saveWeather"><span class="glyphicon glyphicon-heart-empty"></span> Save Forecast</a>`;
-      theString +=      `<button type="button" class="btn-danger" id="isScary">Very, Very Frightening Me</button>`;
       theString +=   `</div>`;
       theString += `</div>`;
     };
@@ -38,12 +37,15 @@ const savedWeatherDom = (array) => {
   theString = `<h1>Your Saved Forecasts!</h1>`;
   array.forEach((oneDay) => {
     theString += `<div class="col-sm-2 fiveCard">`;
-    theString +=   `<div class="thumbnail fiveDayContainer ${oneDay.conditions}" data-firebase-id='${oneDay.id}'>`;
+    if (oneDay.isScary === true) {
+      theString +=   `<div class="thumbnail fiveDayContainer red ${oneDay.conditions}" data-firebase-id='${oneDay.id}'>`;
+    } else {  theString +=   `<div class="thumbnail fiveDayContainer ${oneDay.conditions}" data-firebase-id='${oneDay.id}'>`;
+    }
     theString +=     `<h4 class="temp">${oneDay.temp}</h4>`;
     theString +=     `<h4 id="fiveConditions">${oneDay.conditions}</h4>`;
     theString +=     `<h4 class='pressure'>${oneDay.pressure}</h4>`;
     theString +=     `<h4 class='wind'>${oneDay.speed}</h4>`;
-    theString +=     `<button type="button" class=" btn-danger" id="isScary">Very Very Frightening Me</button><br>`;
+    theString +=     `<button type="button" class=" btn-danger Scary">Very Very Frightening Me</button><br>`;
     theString +=     `<button class="btn btn-info deleteWeather"><span class="glyphicon glyphicon-trash"></span> Delete</button>`;
     theString +=   `</div>`;
     theString += `</div>`;

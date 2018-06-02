@@ -54,6 +54,12 @@ body{
   background-color: rgb(163, 47, 47);
 }
 
+.red {
+  border: 5px solid red;
+  background-color: rgb(223, 75, 75);
+  background-blend-mode: multiply;
+}
+
 .btn-danger{
   margin-top: 5%;
 }
