@@ -20,6 +20,8 @@ const clickButton = () => {
   });
 };
 
+// Five Day Forecast
+
 const clickFiveDay = () => {
   $(document).on('click', '#fiveDayButton', fiveDayForecast);
 };
@@ -29,6 +31,8 @@ const fiveDayForecast = () => {
   openWeather.showFiveDay(zip);
   $('#fiveDayButton').toggle();
 };
+
+// Save Forecast
 
 const saveForecast = () => {
   $(document).on('click', '.saveWeather', (e) => {
@@ -61,8 +65,25 @@ const getAllWeatherEvent = () => {
     });
 };
 
+// Deleting Saved Weather
+
 const clickViewSaved = () => {
   $(document).on('click', '#savedWeather', getAllWeatherEvent);
+};
+
+const clickTrash = () => {
+  $(document).on('click', '.deleteWeather', deleteWeather);
+};
+
+const deleteWeather = (e) => {
+  const weatherToDeleteCard = $(e.target).closest('.fiveDayContainer').data('firebaseId');
+  firebaseAPI.deleteWeather(weatherToDeleteCard)
+    .then(() => {
+      getAllWeatherEvent();
+    })
+    .catch((error) => {
+      console.error('error in delete weather', error);
+    });
 };
 
 const bindEvents = () => {
@@ -70,6 +91,7 @@ const bindEvents = () => {
   clickButton();
   saveForecast();
   clickViewSaved();
+  clickTrash();
 };
 
 module.exports = {

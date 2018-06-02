@@ -45,7 +45,6 @@ const showFiveDay = (searchText) => {
   fiveDay(searchText)
     .then((result) => {
       dom.domFive(result);
-      // fiveDayStyle(result);
     })
     .catch((err) => {
       console.error('search 5day error:', err);

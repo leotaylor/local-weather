@@ -58,6 +58,10 @@ body{
   margin-top: 5%;
 }
 
+.deleteWeather{
+  margin-top: 5%;
+}
+
 #condtionsContainer {
   opacity: .7;
 }
