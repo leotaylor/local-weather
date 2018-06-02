@@ -48,8 +48,8 @@ const deleteWeather = (weatherId) => {
       method: 'DELETE',
       url: `${firebaseConfig.databaseURL}/weather/${weatherId}.json`,
     })
-      .then((thisWillBeNull) => {
-        resolve(thisWillBeNull);
+      .then(() => {
+        resolve();
       })
       .catch((error) => {
         reject(error);

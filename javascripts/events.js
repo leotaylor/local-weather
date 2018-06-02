@@ -20,6 +20,8 @@ const clickButton = () => {
   });
 };
 
+// Five Day Forecast
+
 const clickFiveDay = () => {
   $(document).on('click', '#fiveDayButton', fiveDayForecast);
 };
@@ -29,6 +31,8 @@ const fiveDayForecast = () => {
   openWeather.showFiveDay(zip);
   $('#fiveDayButton').toggle();
 };
+
+// Save Forecast
 
 const saveForecast = () => {
   $(document).on('click', '.saveWeather', (e) => {
@@ -55,12 +59,13 @@ const getAllWeatherEvent = () => {
   firebaseAPI.getAllWeather()
     .then((newWeatherArray) => {
       dom.savedWeatherDom(newWeatherArray);
-      clickTrash();
     })
     .catch((error) => {
       console.error('error in get all weather', error);
     });
 };
+
+// Deleting Saved Weather
 
 const clickViewSaved = () => {
   $(document).on('click', '#savedWeather', getAllWeatherEvent);
@@ -71,18 +76,10 @@ const clickTrash = () => {
 };
 
 const deleteWeather = (e) => {
-  const weatherToDeleteCard = $(e.target).closest('#trashCard');
-  console.log(weatherToDeleteCard);
-  const weatherToDelete = {
-    temp: weatherToDeleteCard.find('.temp').text(),
-    conditions: weatherToDeleteCard.find('#fiveConditions').text(),
-    pressure: weatherToDeleteCard.find('.pressure').text(),
-    speed: weatherToDeleteCard.find('.wind').text(),
-    isScary: false,
-  };
-  firebaseAPI.deleteWeather(weatherToDelete)
+  const weatherToDeleteCard = $(e.target).closest('.fiveDayContainer').data('firebaseId');
+  firebaseAPI.deleteWeather(weatherToDeleteCard)
     .then(() => {
-      weatherToDeleteCard.remove();
+      getAllWeatherEvent();
     })
     .catch((error) => {
       console.error('error in delete weather', error);
@@ -94,6 +91,7 @@ const bindEvents = () => {
   clickButton();
   saveForecast();
   clickViewSaved();
+  clickTrash();
 };
 
 module.exports = {
