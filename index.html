@@ -5,15 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Get Weather</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
 </head>
 <body class="text-center">
 <div class="theHead">
+    <nav id="theNav" class="navbar navbar-default hide"> <!--authhide-->
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a id="logout"><h4>Log Out</h4></a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
   <h1>Local Weather</h1>
   <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
-        <div class="input-group">
+        <div id="searchDiv" class="input-group hide"> <!--authhide-->
           <input type="text" class="form-control" id="searchBar" placeholder="Zipcode...">
           <span class="input-group-btn">
               <button class="btn btn-default" id="weatherButton" type="button">Get Weather</button>
@@ -23,6 +33,73 @@
       </div><!-- /.col-lg-6 -->
   </div>
 </div>
+
+<div id='authScreen'>
+    <div id="login-form">
+    <h1>Sign In:</h1>
+    <form class="form-horizontal col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
+        <div id="signin-error" class="alert alert-danger hide" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            <span id='signin-error-msg'></span>
+          </div>
+      <div class="form-group">
+        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <a href='#' id='register-link'>Need To Register?</a>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" id="signin-btn" class="btn btn-default">Sign in</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div id="registration-form" class="hide">
+      <h1>Register!</h1>
+      <form class="form-horizontal col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
+          <div id="register-error" class="alert alert-danger hide" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span>
+              <span id='register-error-msg'></span>
+            </div>
+        <div class="form-group">
+          <label for="registerEmail" class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="registerEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="registerPassword" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="registerPassword" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <a href='#' id='signin-link'>Go to Login</a>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" id="register-btn" class="btn btn-default">Register</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <div>
     <div id="weatherOutput" class='row'></div>
