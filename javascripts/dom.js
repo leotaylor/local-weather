@@ -19,6 +19,7 @@ const domFive = (weatherArray) => {
     if (index % 8 === 0) {
       theString += `<div class="col-sm-2 fiveCard" id="trashCard">`;
       theString +=   `<div class="thumbnail fiveDayContainer ${oneDay.weather[0].main}">`;
+      theString +=     `<h4 class='locale'>Forecast for: ${$('#searchBar').val()}</h4>`;
       theString +=     `<h4 class="dt">${new Date(oneDay.dt * 1000).toLocaleDateString()}</h4>`;
       theString +=     `<h4 class="temp">Temperature: ${oneDay.main.temp}&#8457</h4>`;
       theString +=     `<h4 id="fiveConditions">Conditions: ${oneDay.weather[0].main}</h4>`;
@@ -34,13 +35,15 @@ const domFive = (weatherArray) => {
 
 const savedWeatherDom = (array) => {
   let theString = '';
-  theString = `<h1>Your Saved Forecasts!</h1>`;
+  theString = `<h1 class="save">Your Saved Forecasts!</h1>`;
   array.forEach((oneDay) => {
     theString += `<div class="col-sm-2 fiveCard">`;
     if (oneDay.isScary === true) {
       theString +=   `<div class="thumbnail fiveDayContainer red ${oneDay.conditions}" data-firebase-id='${oneDay.id}'>`;
     } else {  theString +=   `<div class="thumbnail fiveDayContainer ${oneDay.conditions}" data-firebase-id='${oneDay.id}'>`;
     }
+    theString +=    `<h4 class='locale'>${oneDay.where}</h4>`;
+    theString +=    `<h4 class='dt'>${oneDay.date}</h4>`;
     theString +=     `<h4 class="temp">${oneDay.temp}</h4>`;
     theString +=     `<h4 id="fiveConditions">${oneDay.conditions}</h4>`;
     theString +=     `<h4 class='pressure'>${oneDay.pressure}</h4>`;
@@ -50,7 +53,7 @@ const savedWeatherDom = (array) => {
     theString +=   `</div>`;
     theString += `</div>`;
   });
-  printSaved(theString);
+  printFiveDay(theString);
 };
 
 const printToDom = (stringz) => {
@@ -61,9 +64,9 @@ const printFiveDay = (stringers) => {
   $('#fiveDayOutput').html(stringers);
 };
 
-const printSaved = (strung) => {
-  $('#savedOutput').html(strung);
-};
+// const printSaved = (strung) => {
+//   $('#savedOutput').html(strung);
+// };
 
 module.exports = {
   domString,
