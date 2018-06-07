@@ -53,7 +53,7 @@ const savedWeatherDom = (array) => {
     theString +=   `</div>`;
     theString += `</div>`;
   });
-  printFiveDay(theString);
+  printSaved(theString);
 };
 
 const printToDom = (stringz) => {
@@ -64,9 +64,9 @@ const printFiveDay = (stringers) => {
   $('#fiveDayOutput').html(stringers);
 };
 
-// const printSaved = (strung) => {
-//   $('#savedOutput').html(strung);
-// };
+const printSaved = (strung) => {
+  $('#savedOutput').html(strung);
+};
 
 module.exports = {
   domString,
