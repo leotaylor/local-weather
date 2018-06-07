@@ -8,13 +8,14 @@ const loginStatus = () => {
       $('#authScreen').addClass('hide');
       $('#searchDiv').removeClass('hide');
       $('#theNav').removeClass('hide');
-      $('#fiveDayOutput').addClass('hide');
       getAllWeather.getAllWeatherEvent();
     } else {
       $('#authScreen').removeClass('hide');
       $('#searchDiv').addClass('hide');
       $('#theNav').addClass('hide');
       $('#fiveDayOutput').addClass('hide');
+      $('#savedOutput').addClass('hide');
+      $('#weatherOutput').addClass('hide');
     }
   });
 };

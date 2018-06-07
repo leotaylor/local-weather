@@ -4,11 +4,12 @@ const dom = require('./dom');
 
 const pressEnter = () => {
   $(document).keypress((e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && !$('#searchDiv').hasClass('hide')) {
       const searchZip = $('#searchBar').val();
       openWeather.showResults(searchZip);
       $('#weatherOutput').removeClass('hide');
       $('#fiveDayOutput').addClass('hide');
+      $('#savedOutput').addClass('hide');
       clickFiveDay();
     };
   });
@@ -20,6 +21,7 @@ const clickButton = () => {
     openWeather.showResults(searchZip);
     $('#weatherOutput').removeClass('hide');
     $('#fiveDayOutput').addClass('hide');
+    $('#savedOutput').addClass('hide');
     clickFiveDay();
   });
 };
@@ -35,6 +37,7 @@ const fiveDayForecast = () => {
   openWeather.showFiveDay(zip);
   $('#fiveDayButton').toggle();
   $('#fiveDayOutput').removeClass('hide');
+  $('#savedOutput').addClass('hide');
 };
 
 // Save Forecast
@@ -67,7 +70,8 @@ const getAllWeatherEvent = () => {
     .then((newWeatherArray) => {
       dom.savedWeatherDom(newWeatherArray);
       $('#weatherOutput').addClass('hide');
-      // $('#fiveDayOutput').removeClass('hide');
+      $('#fiveDayOutput').addClass('hide');
+      $('#savedOutput').removeClass('hide');
     })
     .catch((error) => {
       console.error('error in get all weather', error);
@@ -134,25 +138,35 @@ const authEvents = () => {
   $('#register-btn').click(() => {
     const email = $('#registerEmail').val();
     const pass = $('#registerPassword').val();
-    firebase.auth().createUserWithEmailAndPassword(email, pass).catch((error) => {
-      $('#register-error-msg').text(error.message);
-      $('#register-error').removeClass('hide');
-      console.error(error.message);
-    });
+    firebase.auth().createUserWithEmailAndPassword(email, pass)
+      .catch((error) => {
+        $('#register-error-msg').text(error.message);
+        $('#register-error').removeClass('hide');
+        $('#weatherOutput').addClass('hide');
+        $('#fiveDayOutput').addClass('hide');
+        console.error(error.message);
+      });
   });
   $('#register-link').click(() => {
     $('#login-form').addClass('hide');
     $('#registration-form').removeClass('hide');
+    $('#signin-error').addClass('hide');
+    $('#inputEmail').val('');
+    $('#inputPassword').val('');
   });
   $('#signin-link').click(() => {
     $('#login-form').removeClass('hide');
     $('#registration-form').addClass('hide');
+    $('#registerEmail').val('');
+    $('#registerPassword').val('');
+    $('#register-error').addClass('hide');
   });
   $('#logout').click(() => {
     firebase.auth().signOut().then(() => {
       $('#inputEmail').val('');
       $('#inputPassword').val('');
       $('#searchBar').val('');
+      $('#registration-form').addClass('hide');
     })
       .catch((error) => {
         console.error(error);
