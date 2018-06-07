@@ -1,4 +1,4 @@
-const getAllWeather = require('./events');
+// const getAllWeather = require('./events');
 const {setUID,} = require('./firebaseAPI');
 
 const loginStatus = () => {
@@ -8,7 +8,7 @@ const loginStatus = () => {
       $('#authScreen').addClass('hide');
       $('#searchDiv').removeClass('hide');
       $('#theNav').removeClass('hide');
-      getAllWeather.getAllWeatherEvent();
+      // getAllWeather.getAllWeatherEvent(); enable to see saved forecast on login
     } else {
       $('#authScreen').removeClass('hide');
       $('#searchDiv').addClass('hide');

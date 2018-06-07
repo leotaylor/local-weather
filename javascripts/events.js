@@ -7,7 +7,7 @@ const pressEnter = () => {
     if (e.key === 'Enter' && !$('#searchDiv').hasClass('hide')) {
       const searchZip = $('#searchBar').val();
       openWeather.showResults(searchZip);
-      $('#weatherOutput').removeClass('hide');
+      $('#weatherOutput').fadeIn(1500).removeClass('hide');
       $('#fiveDayOutput').addClass('hide');
       $('#savedOutput').addClass('hide');
       clickFiveDay();
@@ -19,7 +19,7 @@ const clickButton = () => {
   $('#weatherButton').click(() => {
     const searchZip = $('#searchBar').val();
     openWeather.showResults(searchZip);
-    $('#weatherOutput').removeClass('hide');
+    $('#weatherOutput').fadeIn(1500).removeClass('hide');
     $('#fiveDayOutput').addClass('hide');
     $('#savedOutput').addClass('hide');
     clickFiveDay();
@@ -36,7 +36,7 @@ const fiveDayForecast = () => {
   const zip = $('#searchBar').val();
   openWeather.showFiveDay(zip);
   $('#fiveDayButton').toggle();
-  $('#fiveDayOutput').removeClass('hide');
+  $('#fiveDayOutput').fadeIn(1500).removeClass('hide');
   $('#savedOutput').addClass('hide');
 };
 
@@ -71,7 +71,7 @@ const getAllWeatherEvent = () => {
       dom.savedWeatherDom(newWeatherArray);
       $('#weatherOutput').addClass('hide');
       $('#fiveDayOutput').addClass('hide');
-      $('#savedOutput').removeClass('hide');
+      $('#savedOutput').fadeIn(2000).removeClass('hide');
     })
     .catch((error) => {
       console.error('error in get all weather', error);
@@ -149,13 +149,13 @@ const authEvents = () => {
   });
   $('#register-link').click(() => {
     $('#login-form').addClass('hide');
-    $('#registration-form').removeClass('hide');
+    $('#registration-form').fadeIn(1000).removeClass('hide');
     $('#signin-error').addClass('hide');
     $('#inputEmail').val('');
     $('#inputPassword').val('');
   });
   $('#signin-link').click(() => {
-    $('#login-form').removeClass('hide');
+    $('#login-form').fadeIn(1000).removeClass('hide');
     $('#registration-form').addClass('hide');
     $('#registerEmail').val('');
     $('#registerPassword').val('');
