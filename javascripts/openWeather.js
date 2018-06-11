@@ -8,7 +8,7 @@ const setWeatherKey = (key) => {
 
 const searchWeather = (txt) => {
   return new Promise((resolve, reject) => {
-    $.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${txt},us&appid=${weatherKey}&units=imperial`)
+    $.ajax(`https://api.openweathermap.org/data/2.5/weather?zip=${txt},us&appid=${weatherKey}&units=imperial`)
       .done((result) => {
         resolve(result);
       })
