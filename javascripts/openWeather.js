@@ -31,7 +31,7 @@ const showResults = (searchText) => {
 
 const fiveDay = (text) => {
   return new Promise((resolve, reject) => {
-    $.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${text}&appid=${weatherKey}&units=imperial`)
+    $.ajax(`https://api.openweathermap.org/data/2.5/forecast?zip=${text}&appid=${weatherKey}&units=imperial`)
       .done((result) => {
         resolve(result.list);
       })
